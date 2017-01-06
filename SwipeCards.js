@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 
 import {
+  Dimensions,
   StyleSheet,
   Text,
   View,
@@ -236,8 +237,9 @@ export default class SwipeCards extends Component {
   }
 
   goToNextCardWithButtonPress() {
+    const { width } = Dimensions.get('window');
     Animated.timing(this.state.pan, {
-      toValue: {x: Config.window.width, y: 0},
+      toValue: {x: width, y: 0},
     }).start(this._resetState.bind(this))
     this.props.handleYup(this.state.card)
   }
