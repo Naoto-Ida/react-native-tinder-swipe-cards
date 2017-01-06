@@ -235,6 +235,13 @@ export default class SwipeCards extends Component {
     });
   }
 
+  goToNextCardWithButtonPress() {
+    Animated.timing(this.state.pan, {
+      toValue: {x: Config.window.width, y: 0},
+    }).start(this._resetState.bind(this))
+    this.props.handleYup(this.state.card)
+  }
+
   _goToPrevCard() {
     this.state.pan.setValue({ x: 0, y: 0 });
     this.state.enter.setValue(0);
