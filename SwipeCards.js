@@ -95,8 +95,8 @@ export default class SwipeCards extends Component {
     showNope: true,
     handleYup: (card) => null,
     handleNope: (card) => null,
-    nopeText: "Nope!",
-    yupText: "Yup!",
+    nopeText: 'Nope!',
+    yupText: 'Yup!',
     onClickHandler: () => { alert('tap') },
     cardRemoved: (ix) => null,
     renderCard: (card) => null,
@@ -344,7 +344,7 @@ export default class SwipeCards extends Component {
         let {pan} = this.state;
         let [translateX, translateY] = [pan.x, pan.y];
 
-        let rotate = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: ["-30deg", "0deg", "30deg"] });
+        let rotate = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: ['-30deg', '0deg', '30deg'] });
         let opacity = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: [0.5, 1, 0.5] });
 
         let animatedCardStyles = {
@@ -374,14 +374,14 @@ export default class SwipeCards extends Component {
     let {pan, enter} = this.state;
     let [translateX, translateY] = [pan.x, pan.y];
 
-    let rotate = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: ["-30deg", "0deg", "30deg"] });
+    let rotate = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: ['-30deg', '0deg', '30deg'] });
     let opacity = pan.x.interpolate({ inputRange: [-200, 0, 200], outputRange: [0.5, 1, 0.5] });
 
     let scale = enter;
 
     let animatedCardStyles = { transform: [{ translateX }, { translateY }, { rotate }, { scale }], opacity };
 
-    return <Animated.View key={"top"} style={[styles.card, animatedCardStyles]} {... this._panResponder.panHandlers}>
+    return <Animated.View key={'top'} style={[styles.card, animatedCardStyles]} {... this._panResponder.panHandlers}>
       {this.props.renderCard(this.state.card)}
     </Animated.View>;
   }
